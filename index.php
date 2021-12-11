@@ -14,16 +14,16 @@
         $location = $_POST['location'];
         $shopName = $_POST['shopName'];
         $price = $_POST['price'];
-        $billNumber = $_POST['billNumber'];
+        $billNumber = isset($_POST['billNumber']) ? $_POST['billNumber'] : "No bill received";
         $dateOfPurchase = $_POST['dateOfPurchase'];
-        $shopNumber = $_POST['shopNumber'];
+        $shopNumber = isset($_POST['shopNumber']) ? $_POST['shopNumber'] : "No number found";
         $productQuantity = $_POST['quantity'];
-        $validity = $_POST['validity'];
-        $files = $_FILES['image'];
-        $somethingElse = $_POST['somethingElse'];
+        $validity = isset($_POST['validity']) ? $_POST['validity'] : "Validity not found";
+        $somethingElse = isset($_POST['somethingElse']) ? $_POST['somethingElse'] : "No extra information";
         $destinationfile = "https://media.istockphoto.com/photos/empty-white-studio-room-abstract-background-picture-id1147521090?b=1&k=20&m=1147521090&s=170667a&w=0&h=z2Syz9Pwcb55xKIIbp08AFPJyVjZM28t5IZLyyhqV3k=";
-
-        if(isset($files['name'])) {
+        
+        if(isset($_FILES['image'])) {
+            $files = $_FILES['image'];
             $filename = $files['name'];
             $fileerror = $files['error'];
             $filetmp = $files['tmp_name'];
