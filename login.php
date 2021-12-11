@@ -17,6 +17,7 @@
             } else {
                 $passwordHash = password_hash($password.'e1@Q', PASSWORD_DEFAULT);
                 $insert_sql = "INSERT INTO `users` (`userName`, `password`) VALUES ( '$username', '$passwordHash' )";
+                // echo $insert_sql;
                 if($connection->query($insert_sql) == true) {
                     $error = "";
                     session_start();
@@ -24,7 +25,7 @@
                     $_SESSION['userName'] = $username;
                     header("location: index.php");
                 } else {
-                    $error = "Username already in use";
+                    $error = $connection->error;
                 }
             }
         } else {
@@ -52,6 +53,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,32 +61,19 @@
     <link rel="stylesheet" href="login.css">
     <title>Login</title>
 </head>
+
 <body>
     <h3>Login or Sign up</h3>
     <?php
         echo "<h5>$error</h5>";
     ?>
     <form method="post">
-        <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Enter your username"
-        />
-        <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Enter your password"
-        />
-        <input
-            type="password"
-            name="cpassword"
-            id="cpassword"
-            placeholder="Confirm your password only if signing up"
-        />
+        <input type="text" name="username" id="username" placeholder="Enter your username" />
+        <input type="password" name="password" id="password" placeholder="Enter your password" />
+        <input type="password" name="cpassword" id="cpassword" placeholder="Confirm your password only if signing up" />
         <button type="submit" class="btn">Sign up</button>
         <button type="submit" class="btn">Login</button>
     </form>
 </body>
+
 </html>
