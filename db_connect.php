@@ -4,9 +4,9 @@
     // $password = "";
     // $database = "house_items";
     $server = "remotemysql.com";
-    $username = "1BGoX1DaCt";
-    $password = "qAh0Jw70AD";
-    $database = "1BGoX1DaCt";
+    $username = "x8771v6dXN";
+    $password = "I7kMX8cZOo";
+    $database = "x8771v6dXN";
 
     $connection = new mysqli($server, $username, $password, $database);
     if($connection->connect_error) {
