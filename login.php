@@ -1,7 +1,7 @@
 <?php
     session_start();
     if($_SESSION && $_SESSION['loggedin'] && $_SESSION['loggedin'] == true) {
-        header("location: home.php");
+        header("location: index.php");
         exit;
     }
     $signup = true;
