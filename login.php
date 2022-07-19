@@ -1,7 +1,7 @@
 <?php
     session_start();
     if($_SESSION && $_SESSION['loggedin'] && $_SESSION['loggedin'] == true) {
-        header("location: index.php");
+        header("location: home.php");
         exit;
     }
     $signup = true;
@@ -55,25 +55,25 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+  <title>Login</title>
 </head>
 
 <body>
-    <h3>Login or Sign up</h3>
-    <?php
+  <h3>Login or Sign up</h3>
+  <?php
         echo "<h5>$error</h5>";
     ?>
-    <form method="post">
-        <input type="text" name="username" id="username" placeholder="Enter your username" />
-        <input type="password" name="password" id="password" placeholder="Enter your password" />
-        <input type="password" name="cpassword" id="cpassword" placeholder="Confirm your password only if signing up" />
-        <button type="submit" class="btn">Sign up</button>
-        <button type="submit" class="btn">Login</button>
-    </form>
+  <form method="post">
+    <input type="text" name="username" id="username" placeholder="Enter your username" />
+    <input type="password" name="password" id="password" placeholder="Enter your password" />
+    <input type="password" name="cpassword" id="cpassword" placeholder="Confirm your password only if signing up" />
+    <button type="submit" class="btn">Sign up</button>
+    <button type="submit" class="btn">Login</button>
+  </form>
 </body>
 
 </html>
